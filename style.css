@@ -1,53 +1,23 @@
-body {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden;
-}
-
-html {
-    height: 100%;
+/* Mengatur agar halaman bisa di-scroll */
+html, body {
+    height: auto;
+    overflow-x: hidden; /* Mencegah scroll horizontal */
 }
 
 .gradient-bg {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    height: 100%;
     width: 100%;
-    position: relative;
 }
 
-.slide-container {
+/* Memberi jarak antar bagian materi */
+.content-section {
     width: 100%;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
+    max-width: 1200px; /* Batas lebar maksimum agar nyaman dibaca */
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    box-sizing: border-box;
-    opacity: 0;
-    transform: translateX(100%);
-    transition: all 0.5s ease-in-out;
-}
-
-.slide.active {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.slide.prev {
-    transform: translateX(-100%);
-}
+/* === SEMUA GAYA KUSTOM ANDA YANG LAIN TETAP SAMA === */
 
 .card-shadow {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
@@ -74,46 +44,10 @@ html {
     background-clip: text;
 }
 
-.nav-button {
-    transition: all 0.3s ease;
-}
-
-.nav-button:hover {
-    transform: scale(1.05);
-}
-
-.nav-button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: none;
-}
-
-.slide-indicator {
-    transition: all 0.3s ease;
-}
-
-.slide-indicator.active {
-    background: #667eea;
-    transform: scale(1.2);
-}
-
 .code-block {
     background: #1e293b;
     color: #e2e8f0;
     font-family: 'Courier New', monospace;
-}
-
-.slide * {
-    box-sizing: border-box;
-}
-
-.slide img {
-    max-width: 100%;
-    height: auto;
-}
-
-.slide {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
 .highlight {
@@ -146,4 +80,14 @@ html {
 .formula-box {
     background: linear-gradient(135deg, #fefce8 0%, #fef3c7 100%);
     border-left: 4px solid #f59e0b;
+}
+
+/* Mengatur agar box-sizing konsisten */
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
