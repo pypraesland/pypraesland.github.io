@@ -3,118 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Presentasi Fungsi Logika IF - Excel</title>
+    <title>Materi Lengkap Fungsi Logika IF - Excel</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-        
         html {
             scroll-behavior: smooth;
         }
-        
+        body {
+            overflow-x: hidden;
+        }
         .gradient-bg {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+        }
+        .content-section {
             width: 100%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        
-        .slide-container {
-            width: 100%;
-        }
-        
-        .slide {
-            width: 100%;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            box-sizing: border-box;
-            position: relative;
-        }
-        
-        .card-shadow {
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-        
-        .social-icon {
-            transition: all 0.3s ease;
-        }
-        
-        .social-icon:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .profile-card {
+        .card {
             backdrop-filter: blur(10px);
             background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
-        
         .text-gradient {
             background: linear-gradient(135deg, #667eea, #764ba2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
-        .nav-button {
-            transition: all 0.3s ease;
-        }
-        
-        .nav-button:hover {
-            transform: scale(1.05);
-        }
-        
-        .nav-button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none;
-        }
-        
-        .slide-indicator {
-            transition: all 0.3s ease;
-        }
-        
-        .slide-indicator.active {
-            background: #667eea;
-            transform: scale(1.2);
-        }
-        
         .code-block {
             background: #1e293b;
             color: #e2e8f0;
             font-family: 'Courier New', monospace;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            white-space: pre-wrap;
+            word-break: break-all;
         }
-        
-        /* Blogger compatibility */
-        .blogger-container {
-            max-width: 100%;
-            margin: 0 auto;
-            padding: 10px;
-        }
-        
-        /* Override Blogger default styles */
-        .slide * {
-            box-sizing: border-box;
-        }
-        
-        .slide img {
-            max-width: 100%;
-            height: auto;
-        }
-        
-        /* Ensure proper font loading */
-        .slide {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-        }
-        
         .highlight {
             background: linear-gradient(120deg, #a78bfa 0%, #ec4899 100%);
             -webkit-background-clip: text;
@@ -122,1020 +48,246 @@
             background-clip: text;
             font-weight: bold;
         }
-        
-        .bullet-point {
+        .bullet {
             position: relative;
-            padding-left: 1.5rem;
+            padding-left: 1.75rem;
         }
-        
-        .bullet-point::before {
-            content: "•";
+        .bullet::before {
+            content: "✓";
             position: absolute;
             left: 0;
             color: #667eea;
             font-weight: bold;
             font-size: 1.2em;
         }
-        
-        .example-box {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            border-left: 4px solid #0ea5e9;
-        }
-        
-        .formula-box {
-            background: linear-gradient(135deg, #fefce8 0%, #fef3c7 100%);
-            border-left: 4px solid #f59e0b;
-        }
     </style>
 </head>
 <body class="gradient-bg font-sans">
-    <div class="slide-container">
-        <!-- Scroll to Top Button -->
-        <button id="scrollToTop" class="fixed bottom-6 right-6 z-50 bg-blue-500 hover:bg-blue-600 text-white rounded-full p-3 shadow-lg transition-all duration-300 opacity-0 pointer-events-none">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
-            </svg>
-        </button>
 
-        <!-- Progress Bar -->
-        <div class="fixed top-0 left-0 w-full h-1 bg-gray-200 z-50">
-            <div id="progressBar" class="h-full bg-gradient-to-r from-blue-500 to-purple-600 transition-all duration-300" style="width: 0%"></div>
-        </div>
+    <main class="container mx-auto p-4 md:p-8 space-y-20">
 
-        <!-- Slide 1: Profil -->
-        <div class="slide">
-            <main class="w-full max-w-5xl mx-auto">
-            <div class="profile-card rounded-3xl p-8 md:p-12 card-shadow">
-                <header class="text-center mb-8">
-                    <div class="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-4xl font-bold shadow-lg">
-                        PYP
+        <section id="slide1" class="content-section">
+            <div class="card rounded-3xl p-8 md:p-12">
+                <div class="grid md:grid-cols-3 gap-8 items-center">
+                    <div class="md:col-span-1 flex flex-col items-center text-center">
+                        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAEgASADASIAAhEBAxEB/8QAGwABAAMBAQEBAAAAAAAAAAAAAAUGBwQDAQL/xAAyEAABAwIFAwMCBwEBAAAAAAABAgMEBREABhIhMQcTQVEiMmEUcYEjQpGhFjNSYnL/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A/VIDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6gZlQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6UDpQOlA6" class="w-40 h-40 rounded-full object-cover shadow-lg mx-auto" alt="Foto Profil">
+                        <div class="mt-4">
+                            <h3 class="text-xl font-bold text-gray-800">Media Sosial</h3>
+                            <div class="mt-2 space-y-2">
+                                <a href="https://instagram.com/pyp_raesland" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center text-gray-600 hover:text-indigo-500 transition-colors">
+                                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919A15.345 15.345 0 0112 2.163zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98C.014 8.353 0 8.761 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.668-.014 4.948-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98A17.34 17.34 0 0012 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>
+                                    pyp_raesland
+                                </a>
+                                <a href="https://linkedin.com/in/prahoro-yudo-purwono-raesland" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center text-gray-600 hover:text-indigo-500 transition-colors">
+                                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 100-4.125 2.062 2.062 0 000 4.125zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                                    Prahoro Yudo Purwono Raesland
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">
-                        Prahoro Yudo Purwono
-                    </h1>
-                    <p class="text-lg text-gray-600 font-medium">
-                        S.M., S.S., M.Hum., CHCS.
-                    </p>
-                </header>
+                    <div class="md:col-span-2">
+                        <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Prahoro Yudo Purwono</h1>
+                        <p class="text-lg text-gray-600 font-medium mb-6">S.M., S.S., M.Hum., CHCS.</p>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <h2 class="text-2xl font-bold text-gradient mb-3">Riwayat Pendidikan</h2>
+                                <p class="text-gray-700"><span class="font-semibold">S2 Ilmu Linguistik Terapan</span> - Universitas Indonesia</p>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl font-bold text-gradient mb-3">Riwayat Pekerjaan</h2>
+                                <ul class="space-y-3 border-l-2 border-indigo-200 pl-4">
+                                    <li><p class="font-semibold">Product Development Lead - YEC</p><p class="text-sm text-gray-500">September 2021 - sekarang</p></li>
+                                    <li><p class="font-semibold">Bartender - Esteh Indonesia</p><p class="text-sm text-gray-500">Maret - September 2021</p></li>
+                                    <li><p class="font-semibold">Copy- & UX Writer Lead - Conecworld</p><p class="text-sm text-gray-500">Juli 2020 - Januari 2021</p></li>
+                                    <li><p class="font-semibold">Guru Riset - SMP Al Falah As Salam</p><p class="text-sm text-gray-500">November 2019 - Juli 2020</p></li>
+                                    <li><p class="font-semibold">Guru Riset - SMPN 55 Surabaya</p><p class="text-sm text-gray-500">Agustus 2018 - Januari 2019</p></li>
+                                    <li><p class="font-semibold">Tutor Bahasa Inggris dan Jerman - Surabaya Tutor</p><p class="text-sm text-gray-500">Agustus 2018 - Desember 2021</p></li>
+                                    <li><p class="font-semibold">Project Manager - Mawar Publisher</p><p class="text-sm text-gray-500">Juni 2016 - Juni 2017</p></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <section id="slide2" class="content-section">
+            <div class="card rounded-3xl p-8 md:p-12">
+                <header class="text-center mb-10"><h1 class="text-4xl font-bold text-gradient mb-4">Pengantar Fungsi Logika IF</h1><div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div></header>
                 <div class="grid md:grid-cols-2 gap-8">
-                    <div class="space-y-6">
-                        <section class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6">
-                            <h2 class="text-xl font-bold text-gradient mb-4 flex items-center">
-                                <svg class="w-6 h-6 mr-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
-                                </svg>
-                                Riwayat Pendidikan
-                            </h2>
-                            <div class="bg-white rounded-xl p-4 shadow-sm flex items-center space-x-4">
-                                <div class="flex-shrink-0">
-                                    <div class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center">
-                                        <svg class="w-8 h-8 text-white" viewBox="0 0 100 100" fill="currentColor">
-                                            <circle cx="50" cy="50" r="45" fill="#FFD700"/>
-                                            <text x="50" y="58" text-anchor="middle" font-family="serif" font-size="24" font-weight="bold" fill="#8B4513">UI</text>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="flex-1">
-                                    <h3 class="font-semibold text-gray-800 mb-1">S2 Ilmu Linguistik Terapan</h3>
-                                    <p class="text-gray-600">Universitas Indonesia</p>
-                                </div>
-                            </div>
-                        </section>
-
-                        <section class="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-6">
-                            <h2 class="text-xl font-bold text-gradient mb-4 flex items-center">
-                                <svg class="w-6 h-6 mr-3 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                                </svg>
-                                Riwayat Pekerjaan
-                            </h2>
-                            <div class="bg-white rounded-xl p-4 shadow-sm flex items-center space-x-4">
-                                <div class="flex-shrink-0">
-                                    <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
-                                        <svg class="w-8 h-8 text-white" viewBox="0 0 100 100" fill="currentColor">
-                                            <rect x="10" y="10" width="80" height="80" rx="8" fill="currentColor"/>
-                                            <text x="50" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">YEC</text>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="flex-1">
-                                    <h3 class="font-semibold text-gray-800 mb-1">Product Development Lead</h3>
-                                    <p class="text-gray-600 mb-1">YEC</p>
-                                    <span class="inline-block bg-green-100 text-green-800 text-sm px-3 py-1 rounded-full">
-                                        2021 - sekarang
-                                    </span>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-
                     <div>
-                        <section class="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-6 h-full">
-                            <h2 class="text-xl font-bold text-gradient mb-6 flex items-center">
-                                <svg class="w-6 h-6 mr-3 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"></path>
-                                </svg>
-                                Media Sosial
-                            </h2>
-                            
-                            <div class="space-y-4">
-                                <a href="https://instagram.com/pyp_raesland" target="_blank" rel="noopener noreferrer" 
-                                   class="social-icon flex items-center bg-white rounded-xl p-4 shadow-sm hover:shadow-md group">
-                                    <div class="w-12 h-12 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 rounded-xl flex items-center justify-center mr-4">
-                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <h3 class="font-semibold text-gray-800 group-hover:text-purple-600">Instagram</h3>
-                                        <p class="text-gray-600 text-sm">@pyp_raesland</p>
-                                    </div>
-                                </a>
-
-                                <a href="https://www.linkedin.com/in/prahoroyudopurwono/" target="_blank" rel="noopener noreferrer" 
-                                   class="social-icon flex items-center bg-white rounded-xl p-4 shadow-sm hover:shadow-md group">
-                                    <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mr-4">
-                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <h3 class="font-semibold text-gray-800 group-hover:text-blue-600">LinkedIn</h3>
-                                        <p class="text-gray-600 text-sm">Prahoro Yudo Purwono Raesland</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-            </div>
-            </main>
-        </div>
-
-        <!-- Slide 2: Pengantar Fungsi Logika IF -->
-        <div class="slide">
-            <div class="profile-card rounded-3xl p-8 md:p-12 card-shadow w-full max-w-5xl mx-auto">
-            <header class="text-center mb-8">
-                <h1 class="text-4xl font-bold text-gradient mb-4">Pengantar Fungsi Logika IF</h1>
-                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
-            </header>
-
-            <div class="grid md:grid-cols-2 gap-8">
-                <section class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-6">
-                    <h2 class="text-2xl font-bold text-blue-800 mb-4 flex items-center">
-                        <span class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3">?</span>
-                        Apa itu Fungsi Logika?
-                    </h2>
-                    <div class="space-y-4">
-                        <p class="text-gray-700 leading-relaxed">
-                            Fungsi di Excel yang menghasilkan nilai <span class="highlight">TRUE (Benar)</span> atau <span class="highlight">FALSE (Salah)</span> berdasarkan pengujian kondisi.
-                        </p>
-                        <div class="example-box rounded-xl p-4">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4">Apa itu Fungsi Logika?</h2>
+                        <p class="text-gray-700 leading-relaxed mb-4">Fungsi di Excel yang menghasilkan nilai <span class="font-bold">TRUE</span> (Benar) atau <span class="font-bold">FALSE</span> (Salah) berdasarkan pengujian suatu kondisi.</p>
+                        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-lg">
                             <h4 class="font-semibold text-blue-800 mb-2">Contoh kondisi:</h4>
-                            <ul class="space-y-2 text-sm">
-                                <li class="bullet-point">Apakah nilai lebih besar dari 75?</li>
-                                <li class="bullet-point">Apakah statusnya "Aktif"?</li>
+                            <ul class="list-disc list-inside text-blue-700">
+                                <li>Apakah nilai di sel A1 lebih besar dari 75?</li>
+                                <li>Apakah teks di sel B1 adalah "Aktif"?</li>
                             </ul>
                         </div>
                     </div>
-                </section>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4">Mengapa Fungsi IF Penting?</h2>
+                        <p class="text-gray-700 leading-relaxed mb-4">Fungsi IF memungkinkan Excel untuk membuat "keputusan" secara otomatis berdasarkan data yang ada, sehingga Anda tidak perlu melakukannya secara manual.</p>
+                        <div class="bg-purple-50 border-l-4 border-purple-400 p-4 rounded-r-lg">
+                             <h4 class="font-semibold text-purple-800 mb-2">Contoh penggunaan:</h4>
+                            <ul class="list-disc list-inside text-purple-700">
+                                <li>Menentukan status: Lulus / Gagal</li>
+                                <li>Memberi Kategori: A / B / C</li>
+                                <li>Memberi label: Bonus / Tidak</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="slide3" class="content-section">
+            <div class="card rounded-3xl p-8 md:p-12 text-center">
+                 <header class="mb-8"><h1 class="text-4xl font-bold text-gradient mb-4">Dua Jenis IF Utama</h1><div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div></header>
+                 <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-green-50 p-6 rounded-2xl">
+                        <h3 class="text-2xl font-bold text-green-800">1. IF Tunggal</h3>
+                        <p class="mt-2 text-gray-700">Digunakan untuk <strong>2 kemungkinan hasil</strong>. Logikanya sederhana, seperti "jika benar, maka ini; jika salah, maka itu".</p>
+                    </div>
+                     <div class="bg-orange-50 p-6 rounded-2xl">
+                        <h3 class="text-2xl font-bold text-orange-800">2. IF Bertingkat (Nested IF)</h3>
+                        <p class="mt-2 text-gray-700">Digunakan untuk <strong>lebih dari 2 kemungkinan hasil</strong>. Ini seperti menumpuk beberapa fungsi IF untuk memeriksa beberapa kondisi secara berurutan.</p>
+                    </div>
+                 </div>
+                 <p class="mt-10 text-gray-700 text-lg">Menguasai keduanya adalah <span class="highlight">dasar untuk membuat formula yang lebih kompleks</span> dan cerdas di Excel.</p>
+            </div>
+        </section>
 
-                <section class="bg-gradient-to-br from-purple-50 to-pink-100 rounded-2xl p-6">
-                    <h2 class="text-2xl font-bold text-purple-800 mb-4 flex items-center">
-                        <span class="bg-purple-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3">!</span>
-                        Mengapa Fungsi IF Penting?
-                    </h2>
-                    <div class="space-y-4">
-                        <ul class="space-y-3 text-gray-700">
-                            <li class="bullet-point">Memungkinkan Excel membuat <span class="highlight">"keputusan" otomatis</span> berdasarkan data</li>
-                            <li class="bullet-point">Mengisi kolom berdasarkan kriteria tertentu</li>
+        <section id="slide4" class="content-section">
+            <div class="card rounded-3xl p-8 md:p-12">
+                <header class="text-center mb-10"><h1 class="text-4xl font-bold text-gradient mb-4">IF Tunggal (Simple IF)</h1><div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div></header>
+                <div class="space-y-8">
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-3">Konsep & Sintaks</h2>
+                        <p class="text-gray-600 mb-4 text-center italic text-lg">"Jika <span class="text-blue-600 font-semibold">kondisi</span> terpenuhi, lakukan <span class="text-green-600 font-semibold">A</span>; jika tidak, lakukan <span class="text-red-600 font-semibold">B</span>."</p>
+                        <div class="code-block text-lg"><strong>=IF</strong>(<span class="text-blue-400">logical_test</span>; <span class="text-green-400">value_if_true</span>; <span class="text-red-400">value_if_false</span>)</div>
+                        <div class="grid md:grid-cols-3 gap-4 mt-4 text-sm">
+                            <div class="bg-gray-100 p-4 rounded-lg"><strong class="text-blue-600">logical_test:</strong> Kondisi yang diuji (misal: A1>75). Operator yang bisa digunakan: <strong>>, <, =, >=, <=, <></strong> (tidak sama dengan).</div>
+                            <div class="bg-gray-100 p-4 rounded-lg"><strong class="text-green-600">value_if_true:</strong> Hasil jika kondisi BENAR (misal: "Lulus"). Bisa berupa teks, angka, atau formula lain.</div>
+                            <div class="bg-gray-100 p-4 rounded-lg"><strong class="text-red-600">value_if_false:</strong> Hasil jika kondisi SALAH (misal: "Remedial").</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-3">Studi Kasus Sederhana</h2>
+                        <div class="bg-indigo-50 border-l-4 border-indigo-400 p-6 rounded-r-lg">
+                            <p class="mb-2"><strong class="text-indigo-800">Masalah:</strong> Menentukan status kelulusan siswa. Kriteria: jika nilai >= 70, maka "Lulus", jika tidak, "Remedial".</p>
+                            <p><strong class="text-indigo-800">Penerapan:</strong> Jika nilai siswa ada di sel D5, maka rumusnya adalah:</p>
+                            <div class="code-block text-base mt-2">=IF(D5>=70; "Lulus"; "Remedial")</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="slide5" class="content-section">
+            <div class="card rounded-3xl p-8 md:p-12">
+                <header class="text-center mb-10"><h1 class="text-4xl font-bold text-gradient mb-4">IF Bertingkat (Nested IF)</h1><div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div></header>
+                <div class="space-y-8">
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-3">Konsep & Sintaks</h2>
+                        <p class="text-gray-600 mb-4">Digunakan saat ada lebih dari dua hasil. Caranya adalah dengan memasukkan fungsi IF baru di dalam argumen <code class="text-red-600 bg-red-100 px-1 rounded">value_if_false</code> dari IF sebelumnya.</p>
+                        <div class="code-block text-base"><strong>=IF</strong>(<span class="text-blue-400">kondisi1</span>; <span class="text-green-400">hasil1</span>; <strong>IF(</strong><span class="text-blue-400">kondisi2</span>; <span class="text-green-400">hasil2</span>; <span class="text-red-400">hasil_jika_salah_semua</span><strong>)</strong>)</div>
+                        <p class="text-sm text-gray-500 mt-2">💡 Excel akan mengevaluasi dari kiri ke kanan dan berhenti begitu menemukan kondisi yang BENAR.</p>
+                    </div>
+                     <div>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-3">Studi Kasus</h2>
+                        <div class="bg-indigo-50 border-l-4 border-indigo-400 p-6 rounded-r-lg">
+                            <p class="mb-2"><strong class="text-indigo-800">Masalah:</strong> Memberi predikat nilai siswa. Kriteria: >=90 (A), >=75 (B), >=60 (C), dan sisanya (D).</p>
+                            <p><strong class="text-indigo-800">Penerapan:</strong> Jika nilai siswa ada di sel D5, maka rumusnya:</p>
+                            <div class="code-block text-sm mt-2">=IF(D5>=90; "A"; IF(D5>=75; "B"; IF(D5>=60; "C"; "D")))</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-3">Tips Penting</h2>
+                        <div class="grid md:grid-cols-3 gap-4 text-sm">
+                            <div class="bg-gray-100 p-4 rounded-lg"><strong class="text-gray-800">Urutan Kondisi:</strong> Mulailah dari kondisi nilai tertinggi (>=90) atau terendah. Jangan mengacaknya.</div>
+                            <div class="bg-gray-100 p-4 rounded-lg"><strong class="text-gray-800">Jumlah Tingkatan:</strong> Hindari lebih dari 3-4 tingkatan IF agar rumus tidak pusing dibaca. Jika lebih, gunakan alternatif lain.</div>
+                            <div class="bg-gray-100 p-4 rounded-lg"><strong class="text-gray-800">Tanda Kurung:</strong> Pastikan jumlah kurung tutup `)` di akhir rumus sama dengan jumlah IF yang digunakan.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="slide6" class="content-section">
+             <div class="card rounded-3xl p-8 md:p-12">
+                 <header class="text-center mb-10"><h1 class="text-4xl font-bold text-gradient mb-4">Alternatif IF Bertingkat</h1><div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div></header>
+                 <div class="max-w-3xl mx-auto">
+                    <h2 class="text-2xl font-bold text-gray-800">Fungsi IFS (Excel 2019/365 ke Atas)</h2>
+                    <p class="text-gray-600 mt-2 mb-4">Untuk kondisi bertingkat yang rumit, fungsi `IFS` jauh lebih rapi dan mudah dibaca karena tidak perlu menumpuk IF.</p>
+                    <p class="font-semibold">Sintaksnya lebih sederhana:</p>
+                    <div class="code-block mt-2">=IFS(kondisi1; hasil1; kondisi2; hasil2; kondisi3; hasil3; ...)</div>
+                    <div class="mt-6 bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-r-lg">
+                        <p class="text-yellow-800">Fungsi ini adalah solusi modern untuk menggantikan IF bertingkat yang panjang dan membingungkan.</p>
+                    </div>
+                 </div>
+            </div>
+        </section>
+
+        <section id="slide7" class="content-section">
+            <div class="card rounded-3xl p-8 md:p-12">
+                <header class="text-center mb-10"><h1 class="text-4xl font-bold text-gradient mb-4">Kapan Menggunakan Masing-Masing IF?</h1><div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div></header>
+                 <div class="grid md:grid-cols-2 gap-8">
+                     <div class="bg-gray-50 p-6 rounded-2xl">
+                        <h3 class="text-2xl font-bold text-gray-800">Gunakan <span class="text-green-600">IF Tunggal</span></h3>
+                        <p class="mt-2 text-gray-700">Ketika Anda hanya butuh <strong>dua kemungkinan hasil</strong>. Ini adalah pilihan tercepat dan paling sederhana.</p>
+                        <ul class="mt-4 space-y-2">
+                            <li class="bullet">Ya / Tidak</li>
+                            <li class="bullet">Lulus / Gagal</li>
+                            <li class="bullet">Bonus / Tidak</li>
+                            <li class="bullet">Aktif / Nonaktif</li>
                         </ul>
-                        <div class="example-box rounded-xl p-4">
-                            <h4 class="font-semibold text-purple-800 mb-2">Contoh penggunaan:</h4>
-                            <ul class="space-y-1 text-sm">
-                                <li class="bullet-point">Lulus/Gagal</li>
-                                <li class="bullet-point">Kategori A/B/C</li>
-                                <li class="bullet-point">Bonus Ya/Tidak</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
+                     </div>
+                     <div class="bg-gray-50 p-6 rounded-2xl">
+                        <h3 class="text-2xl font-bold text-gray-800">Gunakan <span class="text-orange-600">IF Bertingkat / IFS</span></h3>
+                        <p class="mt-2 text-gray-700">Ketika Anda butuh <strong>tiga atau lebih kemungkinan hasil</strong> yang didasarkan pada beberapa kriteria berurutan.</p>
+                        <ul class="mt-4 space-y-2">
+                            <li class="bullet">Predikat Nilai (A, B, C, D)</li>
+                            <li class="bullet">Kategori Produk (Premium, Standar, Ekonomi)</li>
+                            <li class="bullet">Level Diskon (10%, 5%, 0%)</li>
+                        </ul>
+                     </div>
+                 </div>
             </div>
+        </section>
 
-            <div class="mt-8 text-center">
-                <div class="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-6">
-                    <p class="text-lg text-gray-700">
-                        <span class="highlight">Dasar untuk formula yang lebih kompleks</span> dalam Excel
-                    </p>
+        <section id="slide8" class="content-section">
+            <div class="card rounded-3xl p-8 md:p-12">
+                <header class="text-center mb-10"><h1 class="text-4xl font-bold text-gradient mb-4">Kesimpulan</h1><div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div></header>
+                <div class="grid md:grid-cols-3 gap-6 text-center">
+                    <div class="bg-blue-50 p-6 rounded-2xl">
+                        <h3 class="font-bold text-blue-800 text-lg">Alat Fundamental</h3>
+                        <p class="text-gray-700 mt-2 text-sm">Fungsi IF adalah salah satu alat paling dasar dan kuat untuk otomatisasi pengambilan keputusan di dalam spreadsheet Anda.</p>
+                    </div>
+                     <div class="bg-green-50 p-6 rounded-2xl">
+                        <h3 class="font-bold text-green-800 text-lg">Pahami Logikanya</h3>
+                        <p class="text-gray-700 mt-2 text-sm">Kunci utamanya adalah memahami tiga komponen: <code class="bg-gray-200 px-1 rounded">logical_test</code>, <code class="bg-gray-200 px-1 rounded">value_if_true</code>, dan <code class="bg-gray-200 px-1 rounded">value_if_false</code>.</p>
+                    </div>
+                     <div class="bg-purple-50 p-6 rounded-2xl">
+                        <h3 class="font-bold text-purple-800 text-lg">Pilih Sesuai Kebutuhan</h3>
+                        <p class="text-gray-700 mt-2 text-sm">Gunakan IF Tunggal untuk kasus sederhana, dan jangan ragu menggunakan IF Bertingkat atau IFS untuk kasus yang lebih kompleks.</p>
+                    </div>
                 </div>
             </div>
-            </div>
-        </div>
-
-        <!-- Slide 3: Dua Jenis IF Utama -->
-        <div class="slide">
-            <div class="profile-card rounded-3xl p-8 md:p-12 card-shadow w-full max-w-5xl mx-auto">
-            <header class="text-center mb-8">
-                <h1 class="text-4xl font-bold text-gradient mb-4">Dua Jenis IF Utama</h1>
-                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
-            </header>
-
-            <div class="grid md:grid-cols-2 gap-8">
-                <section class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-2xl p-8 transform hover:scale-105 transition-transform">
-                    <div class="text-center mb-6">
-                        <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-white text-2xl font-bold">1</span>
-                        </div>
-                        <h2 class="text-2xl font-bold text-green-800">IF Tunggal</h2>
-                        <p class="text-green-600 font-medium">(Simple IF)</p>
-                    </div>
-                    
-                    <div class="space-y-4">
-                        <div class="bg-white rounded-xl p-4 shadow-sm">
-                            <h3 class="font-semibold text-green-800 mb-2">Karakteristik:</h3>
-                            <ul class="space-y-2 text-sm text-gray-700">
-                                <li class="bullet-point">Untuk <span class="highlight">2 kemungkinan hasil</span></li>
-                                <li class="bullet-point">Satu kondisi yang diuji</li>
-                                <li class="bullet-point">Logika sederhana: Ya/Tidak</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="example-box rounded-xl p-4">
-                            <h4 class="font-semibold text-green-800 mb-2">Contoh:</h4>
-                            <p class="text-sm">Nilai ≥ 70 → "Lulus"<br>Nilai < 70 → "Remedial"</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="bg-gradient-to-br from-orange-50 to-red-100 rounded-2xl p-8 transform hover:scale-105 transition-transform">
-                    <div class="text-center mb-6">
-                        <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-white text-2xl font-bold">2</span>
-                        </div>
-                        <h2 class="text-2xl font-bold text-orange-800">IF Bertingkat</h2>
-                        <p class="text-orange-600 font-medium">(Nested IF)</p>
-                    </div>
-                    
-                    <div class="space-y-4">
-                        <div class="bg-white rounded-xl p-4 shadow-sm">
-                            <h3 class="font-semibold text-orange-800 mb-2">Karakteristik:</h3>
-                            <ul class="space-y-2 text-sm text-gray-700">
-                                <li class="bullet-point">Untuk <span class="highlight">lebih dari 2 kemungkinan hasil</span></li>
-                                <li class="bullet-point">Multiple kondisi berurutan</li>
-                                <li class="bullet-point">Logika kompleks: A/B/C/D</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="example-box rounded-xl p-4">
-                            <h4 class="font-semibold text-orange-800 mb-2">Contoh:</h4>
-                            <p class="text-sm">Nilai ≥ 90 → "A"<br>Nilai ≥ 75 → "B"<br>Nilai ≥ 60 → "C"<br>Nilai < 60 → "D"</p>
-                        </div>
-                    </div>
-                </section>
-            </div>
-
-            <div class="mt-8">
-                <div class="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl p-6 text-center">
-                    <h3 class="text-xl font-bold text-indigo-800 mb-3">Pilihan Tergantung Kebutuhan</h3>
-                    <p class="text-gray-700">
-                        Gunakan <span class="highlight">IF Tunggal</span> untuk keputusan sederhana, 
-                        <span class="highlight">IF Bertingkat</span> untuk keputusan kompleks
-                    </p>
+        </section>
+        
+        <section id="slide9" class="content-section">
+            <div class="card rounded-3xl p-8 md:p-12 text-center">
+                <div class="w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </div>
+                <h1 class="text-5xl font-bold text-gradient">Ada Pertanyaan?</h1>
+                <p class="text-xl text-gray-600 mt-4 max-w-2xl mx-auto">Terima kasih telah menyimak. Silakan jika ada yang ingin didiskusikan.</p>
             </div>
-            </div>
-        </div>
+        </section>
 
-        <!-- Slide 4: IF Tunggal -->
-        <div class="slide">
-            <div class="profile-card rounded-3xl p-8 md:p-12 card-shadow w-full max-w-6xl mx-auto">
-            <header class="text-center mb-8">
-                <h1 class="text-4xl font-bold text-gradient mb-4">IF Tunggal (Simple IF)</h1>
-                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
-            </header>
-
-            <div class="space-y-8">
-                <!-- Konsep Dasar -->
-                <section class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-6">
-                    <h2 class="text-2xl font-bold text-blue-800 mb-4">Konsep Dasar</h2>
-                    <div class="bg-white rounded-xl p-4 shadow-sm">
-                        <p class="text-lg text-gray-700 text-center italic">
-                            "Jika kondisi ini terpenuhi, lakukan A; jika tidak, lakukan B."
-                        </p>
-                        <p class="text-sm text-gray-600 text-center mt-2">
-                            Hanya ada satu kondisi yang diuji, menghasilkan dua kemungkinan output.
-                        </p>
-                    </div>
-                </section>
-
-                <!-- Sintaks -->
-                <section class="bg-gradient-to-br from-yellow-50 to-orange-100 rounded-2xl p-6">
-                    <h2 class="text-2xl font-bold text-orange-800 mb-4">Sintaks Rumus</h2>
-                    <div class="formula-box rounded-xl p-4 mb-4">
-                        <div class="code-block rounded-lg p-4">
-                            <code class="text-lg">=IF(logical_test; value_if_true; value_if_false)</code>
-                        </div>
-                    </div>
-                    
-                    <div class="grid md:grid-cols-3 gap-4">
-                        <div class="bg-white rounded-xl p-4 shadow-sm">
-                            <h3 class="font-bold text-blue-600 mb-2">logical_test</h3>
-                            <p class="text-sm text-gray-700 mb-2">Kondisi yang diuji (wajib menghasilkan TRUE atau FALSE)</p>
-                            <div class="text-xs text-gray-600">
-                                <p><strong>Contoh:</strong> A1>75, B2="Lulus", C3<=10</p>
-                                <p><strong>Operator:</strong> >, <, =, >=, <=, <> (tidak sama dengan)</p>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white rounded-xl p-4 shadow-sm">
-                            <h3 class="font-bold text-green-600 mb-2">value_if_true</h3>
-                            <p class="text-sm text-gray-700 mb-2">Hasil yang ditampilkan jika logical_test BENAR</p>
-                            <div class="text-xs text-gray-600">
-                                <p>Bisa berupa teks (dalam tanda kutip, misal "Lulus"), angka, atau rumus lain</p>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white rounded-xl p-4 shadow-sm">
-                            <h3 class="font-bold text-red-600 mb-2">value_if_false</h3>
-                            <p class="text-sm text-gray-700 mb-2">Hasil yang ditampilkan jika logical_test SALAH</p>
-                            <div class="text-xs text-gray-600">
-                                <p>Sama seperti value_if_true, bisa teks, angka, atau rumus</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Studi Kasus -->
-                <section class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-2xl p-6">
-                    <h2 class="text-2xl font-bold text-green-800 mb-4">Studi Kasus Sederhana</h2>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="bg-white rounded-xl p-4 shadow-sm">
-                            <h3 class="font-bold text-green-700 mb-3">Masalah:</h3>
-                            <p class="text-gray-700 mb-4">
-                                Menentukan status kelulusan siswa. Jika nilai >= 70, maka "Lulus", jika tidak, "Remedial".
-                            </p>
-                            
-                            <h3 class="font-bold text-green-700 mb-3">Contoh Penerapan:</h3>
-                            <p class="text-sm text-gray-600 mb-2">Jika nilai ada di sel D5, rumusnya:</p>
-                            <div class="formula-box rounded-lg p-3">
-                                <code class="text-sm">=IF(D5>=70; "Lulus"; "Remedial")</code>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white rounded-xl p-4 shadow-sm">
-                            <h3 class="font-bold text-green-700 mb-3">Contoh Hasil:</h3>
-                            <div class="space-y-2 text-sm">
-                                <div class="flex justify-between p-2 bg-green-50 rounded">
-                                    <span>Nilai: 85</span>
-                                    <span class="font-bold text-green-600">→ Lulus</span>
-                                </div>
-                                <div class="flex justify-between p-2 bg-red-50 rounded">
-                                    <span>Nilai: 65</span>
-                                    <span class="font-bold text-red-600">→ Remedial</span>
-                                </div>
-                                <div class="flex justify-between p-2 bg-green-50 rounded">
-                                    <span>Nilai: 70</span>
-                                    <span class="font-bold text-green-600">→ Lulus</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-            </div>
-        </div>
-
-        <!-- Slide 5: IF Bertingkat -->
-        <div class="slide">
-            <div class="profile-card rounded-3xl p-8 md:p-12 card-shadow w-full max-w-6xl mx-auto">
-            <header class="text-center mb-8">
-                <h1 class="text-4xl font-bold text-gradient mb-4">IF Bertingkat (Nested IF)</h1>
-                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
-            </header>
-
-            <div class="space-y-8">
-                <!-- Konsep Dasar -->
-                <section class="bg-gradient-to-br from-purple-50 to-pink-100 rounded-2xl p-6">
-                    <h2 class="text-2xl font-bold text-purple-800 mb-4">Konsep Dasar</h2>
-                    <div class="space-y-4">
-                        <div class="bg-white rounded-xl p-4 shadow-sm">
-                            <p class="text-gray-700 mb-3">
-                                Menguji <span class="highlight">lebih dari satu kondisi secara berurutan</span> untuk mendapatkan lebih dari dua kemungkinan hasil.
-                            </p>
-                            <div class="example-box rounded-lg p-3">
-                                <p class="text-sm italic">
-                                    <strong>Logika:</strong> "Jika kondisi 1 benar, hasil A. Jika tidak, periksa lagi: Jika kondisi 2 benar, hasil B. Jika tidak, periksa lagi: ..., jika tidak (semua kondisi salah), hasil Z."
-                                </p>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-xl p-4 shadow-sm">
-                            <p class="text-sm text-gray-600">
-                                Fungsi IF dimasukkan ke dalam argumen <code class="bg-gray-100 px-2 py-1 rounded">value_if_false</code> dari IF sebelumnya.
-                            </p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Sintaks -->
-                <section class="bg-gradient-to-br from-orange-50 to-red-100 rounded-2xl p-6">
-                    <h2 class="text-2xl font-bold text-orange-800 mb-4">Sintaks Rumus (Contoh 3 Hasil)</h2>
-                    <div class="formula-box rounded-xl p-4 mb-4">
-                        <div class="code-block rounded-lg p-4">
-                            <code class="text-sm">=IF(logical_test1; value_if_true1; IF(logical_test2; value_if_true2; value_if_false2))</code>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-xl p-4 shadow-sm">
-                        <p class="text-sm text-gray-700">
-                            <span class="highlight">Excel akan mengevaluasi dari kiri ke kanan.</span> Begitu satu kondisi TRUE terpenuhi, hasilnya akan ditampilkan dan evaluasi berhenti.
-                        </p>
-                    </div>
-                </section>
-
-                <!-- Studi Kasus -->
-                <section class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-6">
-                    <h2 class="text-2xl font-bold text-blue-800 mb-4">Studi Kasus</h2>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="bg-white rounded-xl p-4 shadow-sm">
-                            <h3 class="font-bold text-blue-700 mb-3">Masalah:</h3>
-                            <p class="text-gray-700 mb-4">
-                                Menentukan predikat nilai: >=90 (A), >=75 (B), >=60 (C), <60 (D).
-                            </p>
-                            
-                            <h3 class="font-bold text-blue-700 mb-3">Contoh Penerapan:</h3>
-                            <p class="text-sm text-gray-600 mb-2">Jika nilai ada di sel D5, rumusnya:</p>
-                            <div class="formula-box rounded-lg p-3">
-                                <code class="text-xs">=IF(D5>=90; "A"; IF(D5>=75; "B"; IF(D5>=60; "C"; "D")))</code>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white rounded-xl p-4 shadow-sm">
-                            <h3 class="font-bold text-blue-700 mb-3">Contoh Hasil:</h3>
-                            <div class="space-y-2 text-sm">
-                                <div class="flex justify-between p-2 bg-green-50 rounded">
-                                    <span>Nilai: 95</span>
-                                    <span class="font-bold text-green-600">→ A</span>
-                                </div>
-                                <div class="flex justify-between p-2 bg-blue-50 rounded">
-                                    <span>Nilai: 80</span>
-                                    <span class="font-bold text-blue-600">→ B</span>
-                                </div>
-                                <div class="flex justify-between p-2 bg-yellow-50 rounded">
-                                    <span>Nilai: 65</span>
-                                    <span class="font-bold text-yellow-600">→ C</span>
-                                </div>
-                                <div class="flex justify-between p-2 bg-red-50 rounded">
-                                    <span>Nilai: 50</span>
-                                    <span class="font-bold text-red-600">→ D</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Tips Penting -->
-                <section class="bg-gradient-to-br from-emerald-50 to-teal-100 rounded-2xl p-6">
-                    <h2 class="text-2xl font-bold text-emerald-800 mb-4">Tips Penting</h2>
-                    <div class="grid md:grid-cols-3 gap-4">
-                        <div class="bg-white rounded-xl p-4 shadow-sm">
-                            <h3 class="font-bold text-emerald-700 mb-2">Urutan Kondisi</h3>
-                            <p class="text-sm text-gray-700">Mulailah dari kondisi yang paling spesifik/tertinggi atau terendah.</p>
-                        </div>
-                        <div class="bg-white rounded-xl p-4 shadow-sm">
-                            <h3 class="font-bold text-emerald-700 mb-2">Jumlah Tingkatan</h3>
-                            <p class="text-sm text-gray-700">Excel modern mendukung banyak tingkatan, tetapi terlalu banyak membuat rumus sulit dibaca. Pertimbangkan alternatif jika > 3-4 tingkat.</p>
-                        </div>
-                        <div class="bg-white rounded-xl p-4 shadow-sm">
-                            <h3 class="font-bold text-emerald-700 mb-2">Tanda Kurung</h3>
-                            <p class="text-sm text-gray-700">Pastikan jumlah tanda kurung tutup ) di akhir sesuai dengan jumlah IF yang digunakan.</p>
-                        </div>
-                    </div>
-                </section>
-            </div>
-            </div>
-        </div>
-
-        <!-- Slide 6: Alternatif & Kesimpulan -->
-        <div class="slide">
-            <div class="profile-card rounded-3xl p-8 md:p-12 card-shadow w-full max-w-5xl mx-auto">
-            <header class="text-center mb-8">
-                <h1 class="text-4xl font-bold text-gradient mb-4">Alternatif IF Bertingkat</h1>
-                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
-            </header>
-
-            <div class="space-y-8">
-                <!-- Fungsi IFS -->
-                <section class="bg-gradient-to-br from-indigo-50 to-purple-100 rounded-2xl p-8">
-                    <div class="text-center mb-6">
-                        <div class="w-20 h-20 bg-indigo-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-white text-2xl font-bold">IFS</span>
-                        </div>
-                        <h2 class="text-3xl font-bold text-indigo-800">Fungsi IFS</h2>
-                        <p class="text-indigo-600 font-medium">(Excel 2019/365 ke atas)</p>
-                    </div>
-
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="bg-white rounded-xl p-6 shadow-sm">
-                            <h3 class="text-xl font-bold text-indigo-700 mb-4">Sintaks Lebih Rapi</h3>
-                            <div class="formula-box rounded-lg p-4 mb-4">
-                                <code class="text-sm">=IFS(kondisi1; hasil1; kondisi2; hasil2; kondisi3; hasil3; ...)</code>
-                            </div>
-                            <ul class="space-y-2 text-sm text-gray-700">
-                                <li class="bullet-point">Tidak perlu nested IF</li>
-                                <li class="bullet-point">Lebih mudah dibaca</li>
-                                <li class="bullet-point">Lebih mudah di-maintain</li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-white rounded-xl p-6 shadow-sm">
-                            <h3 class="text-xl font-bold text-indigo-700 mb-4">Contoh Perbandingan</h3>
-                            
-                            <div class="space-y-4">
-                                <div>
-                                    <h4 class="font-semibold text-red-600 mb-2">Nested IF (Rumit):</h4>
-                                    <div class="bg-red-50 rounded p-2">
-                                        <code class="text-xs">=IF(D5>=90;"A";IF(D5>=75;"B";IF(D5>=60;"C";"D")))</code>
-                                    </div>
-                                </div>
-                                
-                                <div>
-                                    <h4 class="font-semibold text-green-600 mb-2">IFS (Lebih Rapi):</h4>
-                                    <div class="bg-green-50 rounded p-2">
-                                        <code class="text-xs">=IFS(D5>=90;"A";D5>=75;"B";D5>=60;"C";TRUE;"D")</code>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Keunggulan IFS -->
-                <section class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-2xl p-6">
-                    <h2 class="text-2xl font-bold text-green-800 mb-6 text-center">Keunggulan Fungsi IFS</h2>
-                    
-                    <div class="grid md:grid-cols-3 gap-4">
-                        <div class="bg-white rounded-xl p-4 shadow-sm text-center">
-                            <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-3">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                            </div>
-                            <h3 class="font-bold text-green-700 mb-2">Lebih Mudah Dibaca</h3>
-                            <p class="text-sm text-gray-600">Struktur yang lebih jelas dan terorganisir</p>
-                        </div>
-                        
-                        <div class="bg-white rounded-xl p-4 shadow-sm text-center">
-                            <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-3">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                </svg>
-                            </div>
-                            <h3 class="font-bold text-blue-700 mb-2">Lebih Mudah Maintenance</h3>
-                            <p class="text-sm text-gray-600">Mudah menambah atau mengubah kondisi</p>
-                        </div>
-                        
-                        <div class="bg-white rounded-xl p-4 shadow-sm text-center">
-                            <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-3">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                                </svg>
-                            </div>
-                            <h3 class="font-bold text-purple-700 mb-2">Performa Lebih Baik</h3>
-                            <p class="text-sm text-gray-600">Evaluasi yang lebih efisien</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Catatan Penting -->
-                <div class="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-2xl p-6 border-l-4 border-yellow-400">
-                    <div class="flex items-center mb-3">
-                        <svg class="w-6 h-6 text-yellow-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
-                        </svg>
-                        <h3 class="text-lg font-bold text-yellow-800">Catatan Penting</h3>
-                    </div>
-                    <p class="text-gray-700">
-                        Fungsi IFS hanya tersedia di <span class="highlight">Excel 2019, Excel 365, dan versi yang lebih baru</span>. 
-                        Jika menggunakan Excel versi lama, tetap gunakan Nested IF.
-                    </p>
-                </div>
-            </div>
-            </div>
-        </div>
-
-        <!-- Slide 7: Kapan Menggunakan Masing-Masing IF -->
-        <div class="slide">
-            <div class="profile-card rounded-3xl p-8 md:p-12 card-shadow w-full max-w-5xl mx-auto">
-            <header class="text-center mb-8">
-                <h1 class="text-4xl font-bold text-gradient mb-4">Kapan Menggunakan Masing-Masing IF?</h1>
-                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
-            </header>
-
-            <div class="space-y-8">
-                <!-- Decision Tree Visual -->
-                <section class="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-6">
-                    <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Panduan Pemilihan</h2>
-                    
-                    <div class="flex flex-col items-center space-y-6">
-                        <!-- Start -->
-                        <div class="bg-indigo-500 text-white rounded-xl p-4 text-center font-bold">
-                            Berapa kemungkinan hasil yang dibutuhkan?
-                        </div>
-                        
-                        <!-- Branches -->
-                        <div class="grid md:grid-cols-2 gap-8 w-full">
-                            <!-- IF Tunggal -->
-                            <div class="bg-green-100 rounded-2xl p-6 text-center">
-                                <div class="bg-green-500 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
-                                    2
-                                </div>
-                                <h3 class="text-xl font-bold text-green-800 mb-3">IF Tunggal</h3>
-                                <p class="text-green-700 mb-4">Ketika hanya ada <span class="highlight">dua kemungkinan hasil</span></p>
-                                
-                                <div class="space-y-2 text-sm">
-                                    <div class="bg-white rounded-lg p-3">
-                                        <strong>Contoh:</strong> Ya/Tidak
-                                    </div>
-                                    <div class="bg-white rounded-lg p-3">
-                                        <strong>Contoh:</strong> Lulus/Gagal
-                                    </div>
-                                    <div class="bg-white rounded-lg p-3">
-                                        <strong>Contoh:</strong> Bonus/Tidak
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- IF Bertingkat -->
-                            <div class="bg-orange-100 rounded-2xl p-6 text-center">
-                                <div class="bg-orange-500 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
-                                    3+
-                                </div>
-                                <h3 class="text-xl font-bold text-orange-800 mb-3">IF Bertingkat</h3>
-                                <p class="text-orange-700 mb-4">Ketika ada <span class="highlight">tiga atau lebih kemungkinan hasil</span> yang bergantung pada kondisi berurutan</p>
-                                
-                                <div class="space-y-2 text-sm">
-                                    <div class="bg-white rounded-lg p-3">
-                                        <strong>Contoh:</strong> Grade A/B/C/D
-                                    </div>
-                                    <div class="bg-white rounded-lg p-3">
-                                        <strong>Contoh:</strong> Kategori Tinggi/Sedang/Rendah
-                                    </div>
-                                    <div class="bg-white rounded-lg p-3">
-                                        <strong>Contoh:</strong> Status VIP/Premium/Regular
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Contoh Praktis -->
-                <section class="bg-gradient-to-br from-purple-50 to-pink-100 rounded-2xl p-6">
-                    <h2 class="text-2xl font-bold text-purple-800 mb-6">Contoh Praktis dalam Kehidupan Sehari-hari</h2>
-                    
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <!-- IF Tunggal Examples -->
-                        <div class="bg-white rounded-xl p-6 shadow-sm">
-                            <h3 class="text-xl font-bold text-green-700 mb-4 flex items-center">
-                                <span class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3">2</span>
-                                Gunakan IF Tunggal
-                            </h3>
-                            
-                            <div class="space-y-3">
-                                <div class="example-box rounded-lg p-3">
-                                    <h4 class="font-semibold text-green-800">Absensi Karyawan</h4>
-                                    <p class="text-sm text-gray-600">Jam masuk <= 08:00 → "Tepat Waktu", selainnya → "Terlambat"</p>
-                                </div>
-                                
-                                <div class="example-box rounded-lg p-3">
-                                    <h4 class="font-semibold text-green-800">Status Pembayaran</h4>
-                                    <p class="text-sm text-gray-600">Tanggal bayar <= Due Date → "Lunas", selainnya → "Overdue"</p>
-                                </div>
-                                
-                                <div class="example-box rounded-lg p-3">
-                                    <h4 class="font-semibold text-green-800">Kelayakan Kredit</h4>
-                                    <p class="text-sm text-gray-600">Gaji >= 5 juta → "Layak", selainnya → "Tidak Layak"</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- IF Bertingkat Examples -->
-                        <div class="bg-white rounded-xl p-6 shadow-sm">
-                            <h3 class="text-xl font-bold text-orange-700 mb-4 flex items-center">
-                                <span class="bg-orange-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3">3+</span>
-                                Gunakan IF Bertingkat
-                            </h3>
-                            
-                            <div class="space-y-3">
-                                <div class="example-box rounded-lg p-3">
-                                    <h4 class="font-semibold text-orange-800">Sistem Penilaian</h4>
-                                    <p class="text-sm text-gray-600">90-100: A, 75-89: B, 60-74: C, <60: D</p>
-                                </div>
-                                
-                                <div class="example-box rounded-lg p-3">
-                                    <h4 class="font-semibold text-orange-800">Kategori Usia</h4>
-                                    <p class="text-sm text-gray-600">0-12: Anak, 13-17: Remaja, 18-59: Dewasa, 60+: Lansia</p>
-                                </div>
-                                
-                                <div class="example-box rounded-lg p-3">
-                                    <h4 class="font-semibold text-orange-800">Level Diskon</h4>
-                                    <p class="text-sm text-gray-600">Pembelian >1jt: 15%, >500rb: 10%, >100rb: 5%, lainnya: 0%</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Tips Pemilihan -->
-                <div class="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-2xl p-6 border-l-4 border-indigo-400">
-                    <div class="flex items-center mb-4">
-                        <svg class="w-6 h-6 text-indigo-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                        </svg>
-                        <h3 class="text-lg font-bold text-indigo-800">Tips Pemilihan yang Tepat</h3>
-                    </div>
-                    <ul class="space-y-2 text-gray-700">
-                        <li class="bullet-point">Mulai dengan menghitung berapa kemungkinan hasil yang dibutuhkan</li>
-                        <li class="bullet-point">Jika hanya 2 hasil → pilih IF Tunggal untuk kesederhanaan</li>
-                        <li class="bullet-point">Jika 3+ hasil → pertimbangkan IF Bertingkat atau IFS (jika tersedia)</li>
-                        <li class="bullet-point">Untuk kondisi yang sangat kompleks (>5 tingkat), pertimbangkan menggunakan tabel lookup atau fungsi lain</li>
-                    </ul>
-                </div>
-            </div>
-            </div>
-        </div>
-
-        <!-- Slide 8: Kesimpulan -->
-        <div class="slide">
-            <div class="profile-card rounded-3xl p-8 md:p-12 card-shadow w-full max-w-5xl mx-auto">
-            <header class="text-center mb-8">
-                <h1 class="text-4xl font-bold text-gradient mb-4">Kesimpulan</h1>
-                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
-            </header>
-
-            <div class="space-y-8">
-                <!-- Key Points -->
-                <section class="grid md:grid-cols-3 gap-6">
-                    <div class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-6 text-center">
-                        <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-blue-800 mb-3">Alat Fundamental</h3>
-                        <p class="text-gray-700">
-                            Fungsi IF adalah <span class="highlight">alat fundamental</span> untuk otomatisasi keputusan di Excel
-                        </p>
-                    </div>
-
-                    <div class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-2xl p-6 text-center">
-                        <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-green-800 mb-3">Pahami Logika</h3>
-                        <p class="text-gray-700">
-                            Pahami logika <span class="highlight">logical_test</span>, <span class="highlight">value_if_true</span>, dan <span class="highlight">value_if_false</span>
-                        </p>
-                    </div>
-
-                    <div class="bg-gradient-to-br from-purple-50 to-pink-100 rounded-2xl p-6 text-center">
-                        <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-purple-800 mb-3">Pilih Sesuai Kebutuhan</h3>
-                        <p class="text-gray-700">
-                            Pilih antara <span class="highlight">IF Tunggal</span>, <span class="highlight">Bertingkat</span>, atau <span class="highlight">IFS</span> sesuai kompleksitas kasus
-                        </p>
-                    </div>
-                </section>
-
-                <!-- Summary Table -->
-                <section class="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-6">
-                    <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Ringkasan Penggunaan</h2>
-                    
-                    <div class="overflow-hidden rounded-xl shadow-sm">
-                        <table class="w-full bg-white">
-                            <thead class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white">
-                                <tr>
-                                    <th class="px-6 py-4 text-left font-bold">Jenis IF</th>
-                                    <th class="px-6 py-4 text-left font-bold">Jumlah Hasil</th>
-                                    <th class="px-6 py-4 text-left font-bold">Kapan Digunakan</th>
-                                    <th class="px-6 py-4 text-left font-bold">Contoh Kasus</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-200">
-                                <tr class="hover:bg-green-50">
-                                    <td class="px-6 py-4 font-semibold text-green-700">IF Tunggal</td>
-                                    <td class="px-6 py-4">2 kemungkinan</td>
-                                    <td class="px-6 py-4">Keputusan sederhana Ya/Tidak</td>
-                                    <td class="px-6 py-4 text-sm">Lulus/Gagal, Aktif/Nonaktif</td>
-                                </tr>
-                                <tr class="hover:bg-orange-50">
-                                    <td class="px-6 py-4 font-semibold text-orange-700">IF Bertingkat</td>
-                                    <td class="px-6 py-4">3+ kemungkinan</td>
-                                    <td class="px-6 py-4">Kondisi berurutan kompleks</td>
-                                    <td class="px-6 py-4 text-sm">Grade A/B/C/D, Kategori</td>
-                                </tr>
-                                <tr class="hover:bg-indigo-50">
-                                    <td class="px-6 py-4 font-semibold text-indigo-700">IFS</td>
-                                    <td class="px-6 py-4">3+ kemungkinan</td>
-                                    <td class="px-6 py-4">Alternatif IF Bertingkat (Excel 2019+)</td>
-                                    <td class="px-6 py-4 text-sm">Sama seperti IF Bertingkat</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-
-                <!-- Final Message -->
-                <div class="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-8 text-center">
-                    <div class="w-20 h-20 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-emerald-800 mb-4">Mulai Praktik Sekarang!</h3>
-                    <p class="text-lg text-gray-700 max-w-2xl mx-auto">
-                        Dengan memahami konsep dasar ini, Anda sudah siap untuk membuat Excel bekerja lebih cerdas dan otomatis. 
-                        <span class="highlight">Praktik adalah kunci penguasaan!</span>
-                    </p>
-                </div>
-            </div>
-            </div>
-        </div>
-
-        <!-- Slide 9: Ada Pertanyaan? -->
-        <div class="slide">
-            <div class="profile-card rounded-3xl p-8 md:p-12 card-shadow w-full max-w-4xl mx-auto text-center">
-            <div class="space-y-8">
-                <!-- Main Question -->
-                <div class="space-y-6">
-                    <div class="w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto">
-                        <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                    </div>
-                    
-                    <h1 class="text-5xl font-bold text-gradient">Ada Pertanyaan?</h1>
-                    
-                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                        Silakan ajukan pertanyaan Anda tentang Fungsi Logika IF di Excel
-                    </p>
-                </div>
-
-                <!-- Contact Info -->
-                <div class="grid md:grid-cols-2 gap-6 mt-12">
-                    <div class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-6">
-                        <h3 class="text-xl font-bold text-blue-800 mb-4">Diskusi & Tanya Jawab</h3>
-                        <div class="space-y-3 text-gray-700">
-                            <div class="flex items-center">
-                                <svg class="w-5 h-5 text-blue-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
-                                </svg>
-                                <span>Sesi interaktif</span>
-                            </div>
-                            <div class="flex items-center">
-                                <svg class="w-5 h-5 text-blue-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                                </svg>
-                                <span>Contoh kasus nyata</span>
-                            </div>
-                            <div class="flex items-center">
-                                <svg class="w-5 h-5 text-blue-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                                </svg>
-                                <span>Tips & trik praktis</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-2xl p-6">
-                        <h3 class="text-xl font-bold text-green-800 mb-4">Hubungi Saya</h3>
-                        <div class="space-y-3">
-                            <a href="https://instagram.com/pyp_raesland" target="_blank" rel="noopener noreferrer" 
-                               class="flex items-center text-gray-700 hover:text-purple-600 transition-colors">
-                                <div class="w-8 h-8 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 rounded-lg flex items-center justify-center mr-3">
-                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                                    </svg>
-                                </div>
-                                <span>@pyp_raesland</span>
-                            </a>
-
-                            <a href="https://www.linkedin.com/in/prahoroyudopurwono/" target="_blank" rel="noopener noreferrer" 
-                               class="flex items-center text-gray-700 hover:text-blue-600 transition-colors">
-                                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
-                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                                    </svg>
-                                </div>
-                                <span>Prahoro Yudo Purwono Raesland</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Thank You Message -->
-                <div class="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl p-6 mt-8">
-                    <h3 class="text-2xl font-bold text-gradient mb-3">Terima Kasih!</h3>
-                    <p class="text-gray-700">
-                        Semoga materi ini bermanfaat untuk meningkatkan produktivitas Anda dalam menggunakan Excel
-                    </p>
-                </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Progress bar functionality
-        const progressBar = document.getElementById('progressBar');
-        const scrollToTopBtn = document.getElementById('scrollToTop');
-
-        function updateProgressBar() {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrollPercent = (scrollTop / scrollHeight) * 100;
-            
-            progressBar.style.width = scrollPercent + '%';
-            
-            // Show/hide scroll to top button
-            if (scrollTop > 300) {
-                scrollToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
-                scrollToTopBtn.classList.add('opacity-100');
-            } else {
-                scrollToTopBtn.classList.add('opacity-0', 'pointer-events-none');
-                scrollToTopBtn.classList.remove('opacity-100');
-            }
-        }
-
-        // Scroll to top functionality
-        scrollToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Update progress bar on scroll
-        window.addEventListener('scroll', updateProgressBar);
-
-        // Smooth scroll for anchor links (if any)
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add scroll animations for sections
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all slides for animation
-        document.querySelectorAll('.slide').forEach(slide => {
-            slide.style.opacity = '0';
-            slide.style.transform = 'translateY(30px)';
-            slide.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(slide);
-        });
-
-        // Initialize progress bar
-        updateProgressBar();
-
-        // Add keyboard shortcuts for better navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Home') {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            } else if (e.key === 'End') {
-                e.preventDefault();
-                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-            }
-        });
-    </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'992fde3327ddfcf2',t:'MTc2MTIwODE4MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+    </main>
+</body>
 </html>
